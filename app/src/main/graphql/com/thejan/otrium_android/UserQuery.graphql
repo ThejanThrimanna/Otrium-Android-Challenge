@@ -1,0 +1,15 @@
+query User {
+   viewer {
+      id
+      name
+      bio
+      avatarUrl
+      location
+      url
+      status {
+        emojiHTML
+        message
+      }
+      company
+    }
+}
