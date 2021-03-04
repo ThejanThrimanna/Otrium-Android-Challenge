@@ -5,11 +5,67 @@ query User {
       bio
       avatarUrl
       location
+      email
       url
-      status {
-        emojiHTML
-        message
-      }
       company
+
+      starredRepositories(first: 3) {
+            totalCount
+            edges {
+              cursor
+              node {
+                id
+                name
+                languages(first: 5) {
+                  nodes {
+                    name
+                  }
+                }
+                stargazers {
+                  totalCount
+                }
+              }
+            }
+      }
+      repositories(first: 10) {
+       edges {
+          node {
+            name
+            stargazers {
+              totalCount
+            }
+            languages(first: 5) {
+              nodes {
+                name
+              }
+            }
+           }
+       }
+      }
+      pinnedItems(first: 3) {
+              edges {
+                node {
+                  ... on Repository {
+                    name
+                    description
+                    homepageUrl
+                    pushedAt
+                    url
+                    openGraphImageUrl
+                    usesCustomOpenGraphImage
+
+                    stargazers {
+                      totalCount
+                    }
+                    languages(first: 5) {
+                        nodes {
+                          name
+                        }
+                    }
+                  }
+
+                }
+              }
+            }
     }
 }

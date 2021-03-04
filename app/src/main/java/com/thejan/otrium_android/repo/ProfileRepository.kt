@@ -1,20 +1,22 @@
 package com.thejan.otrium_android.repo
 
-import android.widget.Toast
+import androidx.room.RoomDatabase
 import com.apollographql.apollo.ApolloClient
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.rx2.Rx2Apollo
-import com.thejan.otrium_android.GitHubApplication
 import com.thejan.otrium_android.UserQuery
 import com.thejan.otrium_android.config.Events
 import com.thejan.otrium_android.config.RxBus
+import com.thejan.otrium_android.database.GitHubDatabase
+import com.thejan.otrium_android.database.entities.UserTable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class ProfileRepository @Inject internal constructor(
-    val bus: RxBus,
-    private val apolloClient: ApolloClient
+    private val bus: RxBus,
+    private val apolloClient: ApolloClient,
+    private val database: GitHubDatabase
 ) {
 
     fun getProfile() {
@@ -41,6 +43,6 @@ class ProfileRepository @Inject internal constructor(
 
     private fun UserQuery.Data.toObject(): UserQuery.Viewer {
         val source = this
-        return source.viewer
+        return source.viewer!!
     }
 }

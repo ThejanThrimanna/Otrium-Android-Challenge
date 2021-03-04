@@ -1,16 +1,15 @@
 package com.thejan.otrium_android.view.activity
 
-import android.net.PlatformVpnProfile
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.thejan.otrium_android.R
 import com.thejan.otrium_android.UserQuery
 import com.thejan.otrium_android.presenter.ProfileActivityPresenter
-import com.thejan.otrium_android.view.ProfileView
+import com.thejan.otrium_android.config.ProfileView
 import javax.inject.Inject
 
-class ProfileActivity : BaseActivity(), ProfileView {
+class ProfileActivity : BaseActivity(),
+    ProfileView {
 
     @Inject
     lateinit var profilePresenter: ProfileActivityPresenter
@@ -40,6 +39,5 @@ class ProfileActivity : BaseActivity(), ProfileView {
     }
 
     override fun refreshView(user: UserQuery.Viewer) {
-        Toast.makeText(this, user.name, Toast.LENGTH_SHORT).show()
     }
 }

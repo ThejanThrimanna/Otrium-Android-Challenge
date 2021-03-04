@@ -1,4 +1,4 @@
-package com.thejan.otrium_android.view
+package com.thejan.otrium_android.config
 
 import com.thejan.otrium_android.UserQuery
 
