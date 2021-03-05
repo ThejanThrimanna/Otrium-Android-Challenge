@@ -9,17 +9,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import com.thejan.otrium_android.R
 import com.thejan.otrium_android.database.entities.RepositoryTable
+import com.thejan.otrium_android.helper.util.PINED_REPO
 import kotlinx.android.synthetic.main.layout_repo_item.view.*
 
-class RepositoryAdapter(private val repos: List<RepositoryTable>) : RecyclerView.Adapter<RepositoryAdapter.ItemViewHolder>() {
+class RepositoryAdapter(private val repos: List<RepositoryTable>) :
+    RecyclerView.Adapter<RepositoryAdapter.ItemViewHolder>() {
 
     override fun getItemCount(): Int = repos.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-
-        val v = inflater.inflate(R.layout.layout_repo_item, parent, false)
+        var v: View? = null
+        v = if (viewType == PINED_REPO)
+            inflater.inflate(R.layout.layout_item_pined, parent, false)
+        else
+            inflater.inflate(R.layout.layout_repo_item, parent, false)
         return ItemViewHolder(v)
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return repos[position].type!!
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
@@ -42,6 +51,7 @@ class RepositoryAdapter(private val repos: List<RepositoryTable>) : RecyclerView
         val tvDesc = itemView.tvDesc
         val tvStars = itemView.tvStars
         val tvLanguage = itemView.tvLanguage
+
         init {
             @BindingAdapter("profileImage")
             fun setImageUrl(view: ImageView, imageUrl: String?) {
