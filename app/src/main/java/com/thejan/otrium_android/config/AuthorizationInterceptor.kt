@@ -12,7 +12,7 @@ import okhttp3.Response
 class AuthorizationInterceptor() : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
 
-        val token = BuildConfig.TOKEN.substring(BuildConfig.TOKEN.lastIndexOf("/") + 1)
+        val token = BuildConfig.TOKEN.replace("//", "")
 
         val request = chain.request().newBuilder()
             .addHeader("Authorization", "Bearer $token")
