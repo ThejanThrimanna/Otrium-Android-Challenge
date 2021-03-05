@@ -1,7 +1,13 @@
 package com.thejan.otrium_android.config
 
-import com.thejan.otrium_android.UserQuery
+import com.thejan.otrium_android.database.entities.RepositoryTable
+import com.thejan.otrium_android.database.entities.UserTable
 
 interface ProfileView {
-    fun refreshView(user: UserQuery.Viewer)
+    fun refreshView(
+        user: List<UserTable>?,
+        pinedList: List<RepositoryTable>,
+        topRepoList: List<RepositoryTable>,
+        starredRepoList: List<RepositoryTable>
+    )
 }

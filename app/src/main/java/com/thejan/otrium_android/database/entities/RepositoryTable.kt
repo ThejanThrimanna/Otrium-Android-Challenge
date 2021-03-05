@@ -6,9 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "repository")
 data class RepositoryTable(
-    @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "eventId") var id: Int? = 0,
+    @PrimaryKey @ColumnInfo(name = "id") var id: Long? = 0,
     @ColumnInfo(name = "name") var name: String? = null,
     @ColumnInfo(name = "image") var image: String? = null,
     @ColumnInfo(name = "languages") var languages: String? = null,
+    @ColumnInfo(name = "description") var description: String? = null,
+    @ColumnInfo(name = "type") var type: Int? = 0,
+    @ColumnInfo(name = "companyName") var companyName: String? = null,
     @ColumnInfo(name = "stars") var stars: Int? = 0
 )

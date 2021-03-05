@@ -12,6 +12,6 @@ import com.thejan.otrium_android.database.entities.UserTable
     version = 5
 )
 abstract class GitHubDatabase : RoomDatabase() {
-    abstract fun permissionDAO(): RepositoryDAO?
+    abstract fun reposDAO(): RepositoryDAO?
     abstract fun userDAO(): UserDAO?
 }

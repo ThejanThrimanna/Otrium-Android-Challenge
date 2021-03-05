@@ -8,14 +8,13 @@ query User {
       email
       url
       company
-
-      starredRepositories(first: 3) {
+      starredRepositories(first: 10) {
             totalCount
             edges {
               cursor
               node {
-                id
                 name
+                description
                 languages(first: 5) {
                   nodes {
                     name
@@ -31,6 +30,7 @@ query User {
        edges {
           node {
             name
+            description
             stargazers {
               totalCount
             }
@@ -48,11 +48,6 @@ query User {
                   ... on Repository {
                     name
                     description
-                    homepageUrl
-                    pushedAt
-                    url
-                    openGraphImageUrl
-                    usesCustomOpenGraphImage
 
                     stargazers {
                       totalCount

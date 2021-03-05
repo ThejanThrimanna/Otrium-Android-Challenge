@@ -49,7 +49,7 @@ class AppModule {
     }
 
     @Provides
-    @Reusable
+    @Singleton
     internal fun provideRoomDatabase(): GitHubDatabase {
         return Room.databaseBuilder(GitHubApplication.instance, GitHubDatabase::class.java, "github_demo")
             .setJournalMode(RoomDatabase.JournalMode.TRUNCATE)
