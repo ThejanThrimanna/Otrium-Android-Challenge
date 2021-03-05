@@ -18,7 +18,7 @@ android {
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField "String", "TOKEN", "\"c69f1bd091603a55527e9bdb4125789012a8949b\""
+        buildConfigField "String", "TOKEN", "\"173f930c837ddef061f3f2d3fd16c8d66920719d\""
 
     }
 
