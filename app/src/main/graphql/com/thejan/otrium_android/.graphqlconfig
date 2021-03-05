@@ -7,7 +7,7 @@
       "Default GraphQL Endpoint": {
         "url": "https://api.github.com/graphql",
         "headers": {
-           "Authentication": "Bearer fc859d26750f78afee299b12f1acb9d4af2c7f7b"
+           "Authentication": "Bearer f72c2e8a5faa452fce7f5df0b88cfb8ec865c507"
         },
         "introspect": false
       }

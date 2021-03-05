@@ -6,7 +6,7 @@ import okhttp3.Response
 class AuthorizationInterceptor() : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val request = chain.request().newBuilder()
-            .addHeader("Authorization", " Bearer fc859d26750f78afee299b12f1acb9d4af2c7f7b")
+            .addHeader("Authorization", " Bearer f72c2e8a5faa452fce7f5df0b88cfb8ec865c507")
             .build()
 
         return chain.proceed(request)

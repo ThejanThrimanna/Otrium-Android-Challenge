@@ -26,6 +26,9 @@ class ProfileRepository @Inject internal constructor(
     private val database: GitHubDatabase
 ) {
 
+    /**
+     * When the Last update time greater than 24h, data will be refresh
+     */
     fun getProfile() {
         val cal = Calendar.getInstance()
         val lastUpdated = SharedPref.getLong(SharedPref.LAST_UPDATED, 0)
