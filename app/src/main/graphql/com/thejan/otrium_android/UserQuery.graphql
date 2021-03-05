@@ -1,0 +1,66 @@
+query User {
+   viewer {
+      id
+      name
+      bio
+      avatarUrl
+      location
+      email
+      url
+      company
+      starredRepositories(first: 10) {
+            totalCount
+            edges {
+              cursor
+              node {
+                name
+                description
+                languages(first: 5) {
+                  nodes {
+                    name
+                  }
+                }
+                stargazers {
+                  totalCount
+                }
+              }
+            }
+      }
+      repositories(first: 10) {
+       edges {
+          node {
+            name
+            description
+            stargazers {
+              totalCount
+            }
+            languages(first: 5) {
+              nodes {
+                name
+              }
+            }
+           }
+       }
+      }
+      pinnedItems(first: 3) {
+              edges {
+                node {
+                  ... on Repository {
+                    name
+                    description
+
+                    stargazers {
+                      totalCount
+                    }
+                    languages(first: 5) {
+                        nodes {
+                          name
+                        }
+                    }
+                  }
+
+                }
+              }
+            }
+    }
+}

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Otrium - Android</string>
+    <string name="profile">Profile</string>
+    <string name="pinned">Pinned</string>
+    <string name="view_all"><u>View All</u></string>
+    <string name="top_repositories">Top repositories</string>
+    <string name="starred_repositories">Starred repositories</string>
+    <string name="followers">followers</string>
+    <string name="following">following</string>
 </resources>
